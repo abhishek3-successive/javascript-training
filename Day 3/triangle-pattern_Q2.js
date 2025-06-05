@@ -61,3 +61,16 @@ numtri(a);
 //  3 3 3 
 //  4 4 4 4 
 //  5 5 5 5 5 
+
+const newtri = (a)=>{
+    let val = 1
+for(var row = 1; row<=a; row++){
+    let pattern = " ";
+    for(var col = 1 ; col<=row; col++){
+        pattern+=val+" ";
+        val++;
+    }
+    console.log(pattern );
+}
+}
+console.log(newtri(a));
