@@ -3,8 +3,9 @@ const check = ( num )=>{
 if(num % 2==0){
     return true;
 }
-if(num % 2 == 1){
-    return false;
+else{
+return false;
 }
+
 }
-console.log(check(3));
+console.log(check(-4)); 
