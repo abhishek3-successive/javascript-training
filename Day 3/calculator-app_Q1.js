@@ -13,9 +13,9 @@ const multiply = (a , b) => a*b;
 const divide = (a , b)=> a/b;
 
 // take a , b , operation
-var a = prompt("Enter the first value");
-var b = prompt("Enter the second value");
-var ops = prompt("enter the operator");
+var a = prompt("Enter the first value" + ":" + " "); // spacing 
+var b = prompt("Enter the second value"+ ":" + " ");
+var ops = prompt("enter the operator"+ ":" + " ");
 
 switch(ops) {
   case "+": 
