@@ -31,7 +31,7 @@ for(var row = 1; row<=a; row++){
 }
 }
 
-// numtri(a);
+console.log(numtri(a));
 // output
 //  1 
 //  2 2 
