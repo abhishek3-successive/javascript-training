@@ -7,7 +7,7 @@ let i = 0
 while(i<n){
     if(test[i]==" "){
         res+=test[i+1].toUpperCase();
-        i=i+2
+        i=i+2 // skip the element
     }
     else {
     res+=test[i];
