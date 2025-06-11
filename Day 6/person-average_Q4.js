@@ -10,10 +10,22 @@ class person{
         console.log(`The person full name is ${this.firstname} ${this.lastname}`)
         // console.log("The person full name is :" + this.firstname + this.lastname )
     }
-    average(){
-        console.log(``)
+    static average(arr){
+        let sum = 0
+        arr.forEach(per=> {
+            if(per>0){
+            sum+=Math.ceil(per.age/arr.length)-1
+            }
+            else{
+                console.log(`pls enter more than 0`)
+            }
+        });
+        console.log(`Average age = ${sum}`)
     }
 }
 
-const p1 = new person("GG", "goku", 5)
+const p1 = new person("GG", "goku", 10)
+const p2 = new person("GG", "goku", 68)
+const p3 = new person("GG", "goku", 56)
 p1.fullname();
+person.average([p1,p2,p3])
