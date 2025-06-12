@@ -12,9 +12,9 @@ class person{
     }
     static average(arr){
         let sum = 0
-        arr.forEach(per=> {
-            if(per>0){
-            sum+=Math.ceil(per.age/arr.length)-1
+        arr.forEach(person=> {
+            if(person.age>0){
+            sum+=Math.ceil(person.age/arr.length)
             }
             else{
                 console.log(`pls enter more than 0`)
@@ -24,8 +24,8 @@ class person{
     }
 }
 
-const p1 = new person("GG", "goku", 10)
-const p2 = new person("GG", "goku", 68)
-const p3 = new person("GG", "goku", 56)
+const p1 = new person("GG", "goku" , -99)
+const p2 = new person("GG", "goku", 99)
+const p3 = new person("GG", "goku", 99)
 p1.fullname();
 person.average([p1,p2,p3])
