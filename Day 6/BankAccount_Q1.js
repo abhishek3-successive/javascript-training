@@ -25,12 +25,12 @@ class BankAccount {
         }
     }
     displaybalance(){
-        console.log(this.balance)
+        console.log(`your current balance is : ${this.balance}`)
     }
 }
 
 let owner = new BankAccount(1000000, "Goku");
-owner.deposit(-5)
-owner.withdraw(-6)
+owner.deposit(5)
+owner.withdraw(6)
 owner.displaybalance();
 
