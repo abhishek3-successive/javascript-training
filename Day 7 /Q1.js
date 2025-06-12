@@ -5,8 +5,8 @@
                 setTimeout(() =>{
                     fetch(url)
                     .then(response =>response.json())
-                    .then(data =>{
-                        cb(data);
+                    .then((data )=>{
+                        cb(data.title); // for accessing a particular value from url 
                     })
                     .catch(error =>{
                       
