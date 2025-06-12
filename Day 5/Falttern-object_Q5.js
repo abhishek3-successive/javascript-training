@@ -9,3 +9,19 @@
    a: 1,
    b: { c: 2, d: [3, 4] }
 };
+function flattenObject(obj, pre = "", result = {}) {
+  for (let key in obj) {
+    const newKey = pre ? `${pre}.${key}` : key;
+    if (typeof obj[key] == "object" && obj[key] !== null) {
+      flattenObject(obj[key], newKey, result);
+    } else {
+      result[newKey] = obj[key];
+    }
+  }
+
+  return result;
+}
+
+let result = {};
+
+console.log(flattenObject(obj));
