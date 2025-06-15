@@ -14,7 +14,7 @@ class person{
         let sum = 0
         arr.forEach(person=> {
             if(person.age>0){
-            sum+=Math.ceil(person.age/arr.length)
+            sum+=Math.round(person.age/arr.length)
             }
             else{
                 console.log(`pls enter more than 0`)

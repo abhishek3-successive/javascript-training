@@ -10,26 +10,22 @@ class Shape {
 }
 
 class Rectangle extends Shape {
-    constructor(rectWidth, rectHeight) {
-        super(rectWidth, rectHeight); // Using super to initialize the base class
-        this.rectWidth = rectWidth;  // Rename width to rectWidth for Rectangle
-        this.rectHeight = rectHeight; // Rename height to rectHeight for Rectangle
+    constructor(width , height) {
+        super(width, height); // Using super to initialize the base class
     }
 
     getArea() {
-        console.log(`Area of Rectangle: ${this.rectWidth * this.rectHeight}`);
+        console.log(`Area of Rectangle: ${this.width * this.height}`);
     }
 }
 
 class Triangle extends Shape {
-    constructor(triWidth, triHeight) {
-        super(triWidth, triHeight); // Using super to initialize the base class
-        this.triWidth = triWidth;   // Rename width to triWidth for Triangle
-        this.triHeight = triHeight; // Rename height to triHeight for Triangle
+    constructor(width, height) {
+        super(width, height); // Using super to initialize the base class
     }
 
     getArea() {
-        console.log(`Area of Triangle: ${0.5 * this.triWidth * this.triHeight}`);
+        console.log(`Area of Triangle: ${0.5 * this.width * this.height}`);
     }
 }
 
