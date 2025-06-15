@@ -1,9 +1,9 @@
 // 6. Implement a function that returns a resolved Promise after a specified delay using async/await.
 const promise1 = new Promise(function(resolve , reject){
     setTimeout(function(){
-        let error = false
+        let error = true
         if(!error){
-            resolve({print : "Lets go"})
+            resolve(`print : yes sir`)
         }
         else{
             reject('Error')
