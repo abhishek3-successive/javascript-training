@@ -8,7 +8,7 @@ const obj = {
     }
 }
 
-const CopyObject = JSON.parse(JSON.stringify(obj))
+const CopyObject = JSON.parse(JSON.stringify(obj)) // deep copy method available in js but unfortuanlty it cant copy the functions and if we use operator like spread 
 
 CopyObject.a = 8;
 
