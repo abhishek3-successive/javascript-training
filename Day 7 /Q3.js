@@ -5,7 +5,7 @@ function fetchData(){
     return new Promise((resolve , reject)=>{
         setTimeout(()=>{
             const error = null;
-            const data = "Data fetch sucessfully"
+            const data = ""
 
             if(error){
                 reject("Error")
