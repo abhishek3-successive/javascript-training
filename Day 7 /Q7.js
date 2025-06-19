@@ -1,39 +1,47 @@
 // 7. Create a function that performs multiple asynchronous operations in parallel using async/await and waits for all of them to complete before returning the results.
-let promise1 = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    let error = false;
-    if (!error) resolve("Promise1 sucess");
-    else reject("rejected");
-  }, 1000);
-})
-// .catch((err) => console.log(err));
+// Promise 1: Simulates async task with setTimeout
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+        const error = false;
+        if (!error) {
+            resolve("✅ Promise1: Success");
+        } else {
+            reject("❌ Promise1: Rejected");
+        }
+    }, 1000);
+});
 
-let promise2 = async () => {
-  const getUserData = await fetch(
-    "https://jsonplaceholder.typicode.com/todos/1"
-  ).json();
-  //  const data = await response.json   // we can also do this method 
-  return getUserData;
+// Promise 2: Fetches data from API using async/await
+const promise2 = async () => {
+    try {
+        const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
+        const data = await response.json(); // Corrected way to parse JSON
+        return data; // Resolves with fetched JSON object
+    } catch (error) {
+        throw "❌ Promise2: Fetch failed";
+    }
 };
 
-let promise3 = new Promise((resolve, reject) => {
-  let success = true;
-  if (success) {
-    resolve("successful");
-  } else {
-    reject("Rejected");
-  }
-})
-// .catch((error) => console.log("error"));
+// Promise 3: Immediately resolved or rejected based on condition
+const promise3 = new Promise((resolve, reject) => {
+    const success = true;
+    if (success) {
+        resolve("✅ Promise3: Successful");
+    } else {
+        reject("❌ Promise3: Rejected");
+    }
+});
 
-async function implementPromises() {
-  try {
-    const promise = await Promise.all([promise1, promise2, promise3]);
-    console.log(`All promise have been sussessfully run`);
-    console.log(promise)
-  } catch (error) {
-    console.log("error");
-  }
-}
+// Function to run all promises in parallel and handle result
+const implementPromises = async () => {
+    try {
+        const results = await Promise.all([promise1, promise2(), promise3]); // Note: promise2 is a function
+        console.log("🎉 All promises successfully resolved:");
+        console.log(results);
+    } catch (error) {
+        console.error("🚫 Error occurred:", error);
+    }
+};
 
+// Execute the function
 implementPromises();

@@ -1,23 +1,29 @@
 // 1. Give an example of using a callback function to handle an asynchronous operation in JavaScript (Use any open api to make a call)
-    function fetchP(cb){
-        const url = " https://jsonplaceholder.typicode.com/todos/1" // url
+const fetchP = (cb) => {
+    const url = "https://jsonplaceholder.typicode.com/todos/1"; 
 
-                setTimeout(() =>{   // async operation
-                    fetch(url)
-                    .then(response =>response.json())  // parse the raw data into json javascript objects
-                    .then((data )=>{  // if .then promise is resolved then it come here
-                        cb(data.title); // for accessing a particular value from url 
-                    })
-                    .catch(error =>{ // if promise is rejected then here
-                      
-                        cb(error);
-                    });
-                }, 1000);
+    // Simulate delay using setTimeout
+    setTimeout(() => {
+        fetch(url)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
+                return response.json();
+            })
+            .then(data => cb(null, data.title)) // Call callback with null error and title
+            .catch(error => cb(error, null));   // Call callback with error and null data
+    }, 1000);
+};
 
+// Callback function that handles the result
+const callback = (error, data) => {
+    if (error) {
+        console.error("Error fetching data:", error);
+        return;
+    }
+    console.log("Fetched title:", data);
+};
 
-          
-        function callback(data){ // callback function
-            console.log(data)
-        }
-fetchP(callback)
+// Execute the async function
+fetchP(callback);
